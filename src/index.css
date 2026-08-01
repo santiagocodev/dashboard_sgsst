@@ -1,0 +1,299 @@
+/* ============================================================
+   GLOBAL CSS - SG-SST Dashboard
+   Safe Group | Sistema de Gestión de SST
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+/* ---- VARIABLES ---- */
+:root {
+  /* Sidebar */
+  --sidebar-bg: #ffffff;
+  --sidebar-width: 220px;
+  --sidebar-item-active-bg: #1a7f37;
+  --sidebar-item-hover-bg: #f1f5f9;
+  --sidebar-text: #475569;
+  --sidebar-text-active: #ffffff;
+
+  /* Header */
+  --header-bg: #ffffff;
+  --header-height: 64px; /* Material uses 64px for top app bar usually */
+
+  /* Background */
+  --bg-main: #f5f5f5; /* Material background is usually slightly gray like #f5f5f5 or #fafafa */
+  --bg-card: #ffffff;
+  --bg-card-hover: #f8faff;
+
+  /* Colores de estado */
+  --color-success: #16a34a;
+  --color-success-light: #22c55e;
+  --color-warning: #d97706;
+  --color-warning-light: #f59e0b;
+  --color-danger: #dc2626;
+  --color-danger-light: #ef4444;
+  --color-info: #1976d2; /* Material Blue */
+  --color-info-light: #2196f3;
+  --color-purple: #7c3aed;
+  --color-purple-light: #8b5cf6;
+  --color-pink: #db2777;
+  --color-pink-light: #ec4899;
+
+  /* Tipografía */
+  --font-primary: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Outfit', 'Roboto', sans-serif;
+
+  /* Texto */
+  --text-primary: rgba(0, 0, 0, 0.87);
+  --text-secondary: rgba(0, 0, 0, 0.6);
+  --text-muted: rgba(0, 0, 0, 0.38);
+  --text-white: #ffffff;
+
+  /* Sombras (Material Design Elevations) */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  --shadow-md: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  --shadow-lg: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+  /* Bordes */
+  --radius-sm: 4px; /* Material cards often use 4px */
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+
+  /* Transiciones */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+}
+
+/* ---- RESET ---- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 14px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  background: var(--bg-main);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+  height: 100vh;
+}
+
+#root {
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+}
+
+/* ---- SCROLLBAR ---- */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #c1cdd8; border-radius: var(--radius-full); }
+::-webkit-scrollbar-thumb:hover { background: #9aabb8; }
+
+/* ---- TYPOGRAPHY ---- */
+h1, h2, h3, h4, h5 { font-family: var(--font-display); font-weight: 700; }
+
+/* ---- LAYOUT ---- */
+.app-layout {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.main-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.content-area {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 12px 14px;
+}
+
+/* ---- CARDS ---- */
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: 12px 14px;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow var(--transition-fast);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.card-title {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.card-title .info-icon {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  cursor: help;
+  flex-shrink: 0;
+}
+
+/* ---- BUTTONS ---- */
+.btn-link {
+  background: none;
+  border: none;
+  color: var(--color-info);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  transition: color var(--transition-fast);
+}
+.btn-link:hover { color: var(--color-purple); }
+
+/* ---- BADGES ---- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: var(--radius-full);
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.badge-success { background: var(--color-success); }
+.badge-danger { background: var(--color-danger); }
+.badge-warning { background: var(--color-warning); }
+.badge-info { background: var(--color-info); }
+
+/* ---- PROGRESS BARS ---- */
+.progress-bar-wrap {
+  height: 6px;
+  background: #e9ecef;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.8s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* ---- STATUS INDICATORS ---- */
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* ---- UTILITIES ---- */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.gap-1 { gap: 4px; }
+.gap-2 { gap: 8px; }
+.gap-3 { gap: 12px; }
+.text-xs { font-size: 10px; }
+.text-sm { font-size: 11px; }
+.text-base { font-size: 13px; }
+.font-bold { font-weight: 700; }
+.font-semibold { font-weight: 600; }
+.mt-1 { margin-top: 4px; }
+.mt-2 { margin-top: 8px; }
+.w-full { width: 100%; }
+
+/* Grid classes removed - they are managed in App.css */
+
+/* ---- DONUT CHART CONTAINER ---- */
+.donut-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.donut-label {
+  position: absolute;
+  text-align: center;
+  pointer-events: none;
+}
+
+/* ---- ANIMATIONS ---- */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.3); }
+  50% { box-shadow: 0 0 0 6px rgba(22, 163, 74, 0); }
+}
+
+.card {
+  animation: fadeInUp 0.3s ease forwards;
+}
+
+/* ---- FOOTER ---- */
+.app-footer {
+  padding: 6px 14px;
+  background: var(--bg-card);
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 10px;
+  color: var(--text-muted);
+}

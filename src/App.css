@@ -1,0 +1,46 @@
+/* App.css - Dashboard grid layout rows */
+
+.dashboard-row {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+/* Row 1: Cumplimiento Global (fluid) + PHVA (tight fit) + Resumen (fluid) */
+.row-1 {
+  grid-template-columns: 1.2fr max-content 1fr;
+}
+
+/* Row 2: Por Estándar + Mapa + Detalle */
+.row-2 {
+  grid-template-columns: minmax(200px, 1fr) minmax(240px, 1.2fr) minmax(300px, 2fr);
+}
+
+/* Row 3: 5 mini cards */
+.row-3 {
+  grid-template-columns: repeat(5, minmax(140px, 1fr));
+}
+
+/* Row 4: Riesgos + Accidentalidad + Alertas */
+.row-4 {
+  grid-template-columns: minmax(180px, 1fr) minmax(280px, 2fr) minmax(180px, 1fr);
+}
+
+/* Media Queries para Pantallas Pequeñas y Tablets */
+@media (max-width: 1200px) {
+  .row-1 {
+    grid-template-columns: 1fr 1fr;
+  }
+  .row-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+  .row-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .row-1, .row-2, .row-3, .row-4 {
+    grid-template-columns: 1fr;
+  }
+}

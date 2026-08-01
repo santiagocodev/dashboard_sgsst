@@ -1,0 +1,37 @@
+.rc-card { display: flex; flex-direction: column; }
+
+.rc-subtitle {
+  font-size: 9px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.rc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.rc-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.rc-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.rc-tipo {
+  font-size: 10px;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.rc-pct {
+  font-size: 11px;
+  font-weight: 800;
+}

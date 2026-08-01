@@ -1,0 +1,126 @@
+.cg-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.cg-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.cg-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+}
+
+/* Donut */
+.cg-donut-wrap {
+  position: relative;
+  width: 105px;
+  height: 105px;
+  flex-shrink: 0;
+}
+
+.cg-donut-wrap canvas {
+  width: 105px !important;
+  height: 105px !important;
+}
+
+.cg-donut-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.cg-pct {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.cg-sublabel {
+  font-size: 9px;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.2;
+  margin-top: 2px;
+  font-weight: 500;
+}
+
+/* Right Info Section */
+.cg-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  text-align: center;
+}
+
+.cg-intro-text {
+  font-size: 10px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* Dynamic Badge */
+.cg-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: var(--radius-md);
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.cg-header-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin-bottom: 8px;
+}
+
+.cg-subtitle-date {
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.cg-action-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.cg-action-msg {
+  font-size: 9.5px;
+  line-height: 1.2;
+  text-align: left;
+  font-weight: 600;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

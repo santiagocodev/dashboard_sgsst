@@ -1,0 +1,29 @@
+.ap-card { display: flex; flex-direction: column; }
+
+.ap-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.ap-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 5px 6px;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast);
+}
+
+.ap-item:hover {
+  background: #f8faff;
+}
+
+.ap-label {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  flex: 1;
+}
