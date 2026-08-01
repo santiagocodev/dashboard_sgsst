@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calendar, Building2, Filter, ChevronDown, RefreshCw, Database, Check, AlertCircle } from 'lucide-react';
+import { Calendar, Building2, Filter, ChevronDown, RefreshCw, Database, Check, AlertCircle, Menu } from 'lucide-react';
 import { Shield } from 'lucide-react';
 import logoImg from '../../assets/logo.png';
 import './Header.css';
@@ -17,7 +17,8 @@ export default function Header({
   onSyncSheet,
   isLoadingSheet,
   lastSyncTime,
-  syncError
+  syncError,
+  onMenuToggle
 }) {
   const [showEmpresa, setShowEmpresa] = useState(false);
   const [showProceso, setShowProceso] = useState(false);
@@ -32,6 +33,11 @@ export default function Header({
 
   return (
     <header className="app-header">
+      {/* Botón de Menú Móvil */}
+      <button className="mobile-menu-btn" onClick={onMenuToggle} aria-label="Abrir menú">
+        <Menu size={24} />
+      </button>
+
       {/* Titulo */}
       <div className="header-titles">
         <h1 className="header-title">SISTEMA DE GESTIÓN DE SEGURIDAD Y SALUD EN EL TRABAJO</h1>

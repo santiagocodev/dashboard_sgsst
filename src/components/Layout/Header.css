@@ -394,3 +394,27 @@
 .btn-primary:hover {
   opacity: 0.9;
 }
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #0f172a;
+  cursor: pointer;
+  padding: 4px;
+}
+.mobile-menu-btn:hover {
+  color: #2563eb;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .header-subtitle {
+    display: none; /* Hide subtitle on mobile for space */
+  }
+}

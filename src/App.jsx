@@ -25,6 +25,7 @@ export default function App() {
   const [selectedEstandar, setSelectedEstandar] = useState(3);
   const [empresa, setEmpresa] = useState(initialData.empresa);
   const [proceso, setProceso] = useState('Todos los procesos');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Estado de Datos y Google Sheets
   const [currentData, setCurrentData] = useState(initialData);
@@ -71,9 +72,10 @@ export default function App() {
 
   return (
     <div className="app-layout">
-      <Sidebar activeItem={activeMenu} onItemClick={setActiveMenu} />
+      <Sidebar activeItem={activeMenu} onItemClick={setActiveMenu} isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
       <div className="main-wrapper">
         <Header
+          onMenuToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           fecha={currentData.fechaCorte}
           empresa={empresa}
           onEmpresaChange={setEmpresa}

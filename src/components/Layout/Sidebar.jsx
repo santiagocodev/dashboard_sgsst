@@ -47,9 +47,11 @@ const menuSections = [
   }
 ];
 
-export default function Sidebar({ activeItem, onItemClick }) {
+export default function Sidebar({ activeItem, onItemClick, isOpen, onClose }) {
   return (
-    <aside className="sidebar">
+    <>
+      {isOpen && <div className="sidebar-overlay" onClick={onClose}></div>}
+      <aside className={`sidebar ${isOpen ? 'mobile-open' : ''}`}>
       {/* Logo */}
       <div className="sidebar-logo">
         <div className="logo-circle-wrap">
@@ -76,7 +78,10 @@ export default function Sidebar({ activeItem, onItemClick }) {
                 <button
                   key={item.id}
                   className={`sidebar-item ${isActive ? 'active' : ''}`}
-                  onClick={() => onItemClick(item.id)}
+                  onClick={() => {
+                    onItemClick(item.id);
+                    if (onClose) onClose();
+                  }}
                   title={item.label}
                 >
                   <Icon size={15} strokeWidth={isActive ? 2.5 : 2} />
@@ -104,6 +109,7 @@ export default function Sidebar({ activeItem, onItemClick }) {
         </div>
         <div className="sidebar-version">Versión 1.0.0</div>
       </div>
-    </aside>
+      </aside>
+    </>
   );
 }

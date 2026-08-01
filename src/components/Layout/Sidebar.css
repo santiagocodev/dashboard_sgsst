@@ -223,3 +223,36 @@
   padding-top: 6px;
   border-top: 1px solid #cbd5e1;
 }
+
+/* Mobile Sidebar Overlay */
+.sidebar-overlay {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -240px; /* Hide off-screen by default */
+    height: 100vh;
+    z-index: 1000;
+    transition: left 0.3s ease;
+    box-shadow: 2px 0 12px rgba(0,0,0,0.2);
+  }
+  
+  .sidebar.mobile-open {
+    left: 0; /* Slide in */
+  }
+  
+  .sidebar-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 999;
+    backdrop-filter: blur(2px);
+  }
+}
