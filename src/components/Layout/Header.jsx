@@ -32,11 +32,6 @@ export default function Header({
 
   return (
     <header className="app-header">
-      {/* Logo mini en header */}
-      <div className="header-logo">
-        <img src={logoImg} alt="Logo" className="header-logo-img" />
-      </div>
-
       {/* Titulo */}
       <div className="header-titles">
         <h1 className="header-title">SISTEMA DE GESTIÓN DE SEGURIDAD Y SALUD EN EL TRABAJO</h1>
@@ -45,13 +40,15 @@ export default function Header({
 
       {/* Filtros / Acciones */}
       <div className="header-filters">
-        {/* Botón Conectar Google Sheet (Icono Circular) */}
+        {/* Badge de Estado de Conexión a Google Sheets */}
         <button
-          className={`sheet-sync-icon-btn ${sheetId ? 'connected' : ''} ${isLoadingSheet ? 'loading' : ''}`}
+          className={`sheet-status-pill ${sheetId ? 'connected' : 'disconnected'} ${isLoadingSheet ? 'loading' : ''}`}
           onClick={() => setShowSheetModal(true)}
-          title={sheetId ? 'Google Sheets Conectado - Clic para cambiar' : 'Conectar con Google Sheets'}
+          title={sheetId ? 'Google Sheets Conectado - Clic para cambiar o re-sincronizar' : 'Conectar con Google Sheets'}
         >
-          <RefreshCw size={14} className={isLoadingSheet ? 'spin' : ''} />
+          <span className={`status-dot ${sheetId ? 'green' : 'red'}`} />
+          <span>{sheetId ? 'Conectado' : 'Desconectado'}</span>
+          <RefreshCw size={12} className={isLoadingSheet ? 'spin' : ''} style={{ marginLeft: 2 }} />
         </button>
       </div>
 
